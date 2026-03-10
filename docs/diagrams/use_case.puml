@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+actor "Администратор" as Admin
+actor "Менеджер" as Manager
+actor "Клиент" as Client
+
+rectangle "Система аренды\nмузыкальных инструментов" {
+  usecase "Авторизация" as UC1
+  usecase "Управление\nинструментами" as UC2
+  usecase "Управление\nклиентами" as UC3
+  usecase "Оформление аренды" as UC4
+  usecase "Продление аренды" as UC5
+  usecase "Завершение аренды" as UC6
+  usecase "Управление\nдоговорами" as UC7
+  usecase "Прием платежей" as UC8
+  usecase "Формирование отчетов" as UC9
+  usecase "Управление\nпользователями" as UC10
+}
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+Admin --> UC9
+Admin --> UC10
+
+Manager --> UC1
+Manager --> UC2
+Manager --> UC3
+Manager --> UC4
+Manager --> UC5
+Manager --> UC6
+Manager --> UC7
+Manager --> UC8
+Manager --> UC9
+
+Client --> UC3 : регистрация
+Client --> UC4 : аренда
+Client --> UC8 : оплата
+@enduml
