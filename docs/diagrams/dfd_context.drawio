@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" modified="2026-03-10T12:00:00.000Z" agent="codex" version="24.7.17" type="device">
+  <diagram id="dfd1" name="Контекстная DFD">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="sys" value="Система аренды музыкальных инструментов" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="430" y="300" width="320" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="client" value="Клиент" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="manager" value="Менеджер" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="100" y="430" width="140" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="admin" value="Администратор" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="850" y="150" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="db" value="БД SQL Server" style="shape=cylinder;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="850" y="430" width="160" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="Регистрация, заявки, оплаты" style="endArrow=classic;html=1;" edge="1" parent="1" source="client" target="sys">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="Подтверждения, договор, статус аренды" style="endArrow=classic;html=1;" edge="1" parent="1" source="sys" target="client">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="Операции аренды, платежи, отчеты" style="endArrow=classic;html=1;" edge="1" parent="1" source="manager" target="sys">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="Управление пользователями" style="endArrow=classic;html=1;" edge="1" parent="1" source="admin" target="sys">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="Чтение/запись данных" style="endArrow=classic;html=1;" edge="1" parent="1" source="sys" target="db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

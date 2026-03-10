@@ -1,0 +1,83 @@
+@startuml
+hide circle
+skinparam linetype ortho
+
+entity Users {
+  *UserID : int <<PK>>
+  --
+  Username : string
+  PasswordHash : string
+  FullName : string
+  Email : string
+  Phone : string
+  Role : string
+  IsActive : bool
+  CreatedAt : datetime
+}
+
+entity Clients {
+  *ClientID : int <<PK>>
+  --
+  FullName : string
+  Phone : string
+  Email : string
+  Address : string
+  PassportData : string
+  RegistrationDate : datetime
+  IsActive : bool
+}
+
+entity Instruments {
+  *InstrumentID : int <<PK>>
+  --
+  Name : string
+  Type : string
+  Brand : string
+  Model : string
+  SerialNumber : string
+  PurchasePrice : decimal
+  RentalPricePerDay : decimal
+  Status : string
+  CreatedAt : datetime
+}
+
+entity Rentals {
+  *RentalID : int <<PK>>
+  --
+  ClientID : int <<FK>>
+  InstrumentID : int <<FK>>
+  StartDate : datetime
+  EndDate : datetime
+  ActualReturnDate : datetime
+  DepositAmount : decimal
+  TotalCost : decimal
+  Status : string
+  CreatedAt : datetime
+  CreatedBy : int
+}
+
+entity Contracts {
+  *ContractID : int <<PK>>
+  --
+  RentalID : int <<FK>>
+  ContractNumber : string
+  ContractDate : datetime
+  ContractText : text
+}
+
+entity Payments {
+  *PaymentID : int <<PK>>
+  --
+  RentalID : int <<FK>>
+  Amount : decimal
+  PaymentDate : datetime
+  PaymentMethod : string
+  ReceivedBy : int <<FK>>
+}
+
+Clients ||--o{ Rentals
+Instruments ||--o{ Rentals
+Rentals ||--o{ Payments
+Users ||--o{ Payments
+Rentals ||--o{ Contracts
+@enduml
